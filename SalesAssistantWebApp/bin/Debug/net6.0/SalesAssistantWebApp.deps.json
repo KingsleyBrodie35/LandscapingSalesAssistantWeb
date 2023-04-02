@@ -1,0 +1,34 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SalesAssistantWebApp/1.0.0": {
+        "dependencies": {
+          "Microsoft.TypeScript.MSBuild": "5.0.3"
+        },
+        "runtime": {
+          "SalesAssistantWebApp.dll": {}
+        }
+      },
+      "Microsoft.TypeScript.MSBuild/5.0.3": {}
+    }
+  },
+  "libraries": {
+    "SalesAssistantWebApp/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Microsoft.TypeScript.MSBuild/5.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-EExcjwFdyB99nNTztwWqte1/NhAHLTYnho+LcmyfKrjHGTQfhX5JRNwiamgUPVQJXldJTCpd8luj7gZfMB+aZQ==",
+      "path": "microsoft.typescript.msbuild/5.0.3",
+      "hashPath": "microsoft.typescript.msbuild.5.0.3.nupkg.sha512"
+    }
+  }
+}

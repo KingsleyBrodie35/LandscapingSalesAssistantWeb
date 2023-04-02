@@ -5,6 +5,19 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Landscaping Sales Assistant</h1>
+    <form runat="server" form="post" id="form">
+        <fieldset>
+            <legend>Choose your product</legend>
+            <div>
+                <input type="checkbox" id="paver" name="paver" onclick="generateInputs()">
+                <label for="paver">Paver</label>
+            </div>
+            <div>
+              <input type="checkbox" id="retainingWall" name="retaining Wall" onclick="generateInputs()">
+              <label for="retainingWall">Retaining Wall</label>
+            </div>
+        </fieldset>
+    </form>
 </div>
+<script src="~/js/app.js"></script>

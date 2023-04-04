@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using SalesAssistantWebApp.Context;
+using Microsoft.Extensions.Configuration;
+
 namespace SalesAssistantWebApp
 {
     public class Program
@@ -9,7 +13,14 @@ namespace SalesAssistantWebApp
             // Add services to the container.
             builder.Services.AddRazorPages();
 
+            // Add configuration sources
+            builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+            // Add services to the container
+            builder.Services.AddDbContext<LandscapingAssistantDB>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
             var app = builder.Build();
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

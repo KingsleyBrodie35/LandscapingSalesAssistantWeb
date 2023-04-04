@@ -2,10 +2,6 @@ html {
   font-size: 14px;
 }
 
-/*form {
-    display: none !important;
-}*/
-
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -19,4 +15,35 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+#inputDiv {
+    width: 30%;
+    justify-content: center;
+    margin: auto;
+    
+}
+#inputSize, #inputColour, #inputCrushRock, #inputWallHeight, #inputCurve, #formButton {
+    margin: 10px;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: flex;
+    justify-content: space-between;
+    align-items: center
+}
+.left {
+    order: 1;
+}
+
+.right {
+    order: 2;
+}
+button {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center; /* center the content horizontally */
+    align-items: center;
+    
 }

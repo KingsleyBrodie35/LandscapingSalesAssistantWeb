@@ -5,19 +5,46 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Landscaping Sales Assistant</h1>
-    <form runat="server" form="post" id="form">
+    <form method="post">
         <fieldset>
             <legend>Choose your product</legend>
             <div>
-                <input type="checkbox" id="paver" name="paver" onclick="generateInputs()">
                 <label for="paver">Paver</label>
+                <input type="radio" id="paver" name="project_type" value="paver" onclick="generateInputs()">
+                <label for="retainingWall">Retaining Wall</label>
+                <input type="radio" id="retainingWall" name="project_type" value="retaining Wall" onclick="generateInputs()">
             </div>
-            <div>
-              <input type="checkbox" id="retainingWall" name="retaining Wall" onclick="generateInputs()">
-              <label for="retainingWall">Retaining Wall</label>
+            <div id="inputDiv">
+                <!--paving-->
+                <div id="inputSize" class="hidden">
+                    <label for="size" class="left">Paver Size</label>
+                    <input type="text" id="size" name="size" placeholder="400x400x40mm" class="right" pattern="^\d{3,4}x\d{3,4}x\d{1,3}mm$"/>   
+                </div>
+                <div id="inputColour" class="hidden">
+                    <label for="colour" class="left">Colour</label>
+                    <input type="text" id="colour" name="colour" placeholder="grey" pattern="^[a-zA-Z]+$" class="right"/>
+                </div>
+                <div id="inputCrushRock" class="hidden">
+                    <label>Are you using a Crush Rock substrate?</label>
+                    <label for="canCrushRock">Yes</label>
+                    <input type="radio" id="isCrushRock" value="true" name="isCrushRock"/>
+                    <label for="canCrushRock">No</label>
+                    <input type="radio" id="isCrushRock" value="false" name="isCrushRock"/>
+                </div>
+                <!--retaining wall-->
+                <div id="inputWallHeight" class="hidden">
+                    <label class="left">wall height</label>
+                    <input type="text" id="wallHeight" name="wallHeight" placeholder="600mm" pattern="\b\d{3-4}mm\b" class="right"/>
+                </div>
+                <div id="inputCurve" class="hidden">
+                    <label>Does your wall require curvature?</label>
+                    <label for="canWallCurve">Yes</label>
+                    <input type="radio" id="canWallCurve" value="true" name="canWallCurve"/>
+                    <label for="canWallCurve">No</label>
+                    <input type="radio" id="canWallCurve" value="false" name="canWallCurve"/>
+                </div>
+                <button type="submit" id="formButton" class="hidden ">submit</button>
             </div>
         </fieldset>
     </form>
 </div>
-<script src="~/js/app.js"></script>

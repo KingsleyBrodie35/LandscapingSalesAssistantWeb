@@ -34,7 +34,7 @@
                 <!--retaining wall-->
                 <div id="inputWallHeight" class="hidden">
                     <label class="left">wall height</label>
-                    <input type="text" id="wallHeight" name="wallHeight" placeholder="600mm" pattern="\b\d{3-4}mm\b" class="right"/>
+                    <input type="text" id="wallHeight" name="wallHeight" placeholder="600mm" pattern="\d{3-4}mm" class="right"/>
                 </div>
                 <div id="inputCurve" class="hidden">
                     <label>Does your wall require curvature?</label>
@@ -47,4 +47,60 @@
             </div>
         </fieldset>
     </form>
+    <div class="tableDiv"><table>
+        @if (Model.pResults != null && Model.pResults.Count != 0)
+        {
+            <tr>
+                <th>Image</th>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Colour</th>
+                <th>Description</th>
+                <th>Supplier</th>
+                <th>Price each</th>
+            </tr>
+        @foreach (var p in Model.pResults)
+        {
+            <tr>
+                <td><img src="~/images/@p.imagePath"/></td>
+                <td>@p.PaverId</td>
+                <td>@p.name</td>
+                <td>@p.size</td>
+                <td>@p.colour</td>
+                <td>@p.description</td>
+                <td>@p.supplier</td>
+                <td>$@p.price ea</td>
+            </tr>
+        }
+        }
+        @if (Model.rWresults != null && Model.rWresults.Count != 0)
+        {
+            <tr>
+                <th>Image</th>
+                <th>Product ID</th>
+                <th>Name</th>
+                <th>Size</th>
+                <th>Colour</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Maximum Height</th>
+            </tr>
+            @foreach (var r in Model.rWresults)
+            {
+                <tr>
+                    <td><img src="images/@r.imagePath"/></td>
+                    <td>@r.RetainingWallId</td>
+                    <td>@r.name</td>
+                    <td>@r.size</td>
+                    <td>@r.colour</td>
+                    <td>@r.description</td>
+                    <td>$@r.price ea</td>
+                    <td>@r.maxHeight</td>
+                </tr>
+            }
+        }
+       
+    </table></div>
+   
 </div>

@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SalesAssistantWebApp.Context;
 
@@ -10,9 +11,11 @@ using SalesAssistantWebApp.Context;
 namespace SalesAssistantWebApp.Migrations
 {
     [DbContext(typeof(LandscapingAssistantDB))]
-    partial class LandscapingAssistantDBModelSnapshot : ModelSnapshot
+    [Migration("20230404104302_LandscapingDB")]
+    partial class LandscapingDB
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

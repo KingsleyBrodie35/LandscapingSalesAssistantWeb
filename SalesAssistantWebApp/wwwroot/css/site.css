@@ -42,8 +42,34 @@ body {
 }
 button {
     width: 100%;
-    display: inline-flex;
-    justify-content: center; /* center the content horizontally */
+    display: flex;
+    justify-content: center;
     align-items: center;
-    
+}
+
+table {
+    width: 80%;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #dddddd;
+}
+img {
+    width: 150px;
+}
+form {
+    padding-bottom:60px;
+
+}
+.tableDiv {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

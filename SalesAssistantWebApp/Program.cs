@@ -15,12 +15,11 @@ namespace SalesAssistantWebApp
 
             // Add configuration sources
             builder.Configuration.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
-            // Add services to the container
+            // Add services to the container (dependency injection)
             builder.Services.AddDbContext<LandscapingAssistantDB>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
-
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())

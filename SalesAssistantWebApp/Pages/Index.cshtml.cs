@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Web;
 using SalesAssistantWebApp.Context;
 using SalesAssistantWebApp.Models;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace SalesAssistantWebApp.Pages
 {

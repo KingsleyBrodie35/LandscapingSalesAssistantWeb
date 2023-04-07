@@ -1,0 +1,39 @@
+﻿@page
+@model SalesAssistantWebApp.Pages.ProductModel
+
+<div class="mainDiv">
+    @if (Model.paver != null) {
+        <div> 
+            <div class="headerChildDiv right">
+                <h3>@Model.paver.name</h3>
+                <h3>@Model.paver.colour</h3>
+                <h3>@Model.paver.size</h3>
+            </div>
+            <img class="imageResize left" src="~/images/@Model.paver.imagePath"/>
+        </div>
+        <div>
+            <p>@Model.paver.description</p>
+            <p>Supplier: @Model.paver.supplier</p>
+            <p>$@Model.paver.price ea</p>
+        </div>
+        
+
+    }
+
+    @if (Model.retainingWall != null) {
+        <div> 
+            <div class="headerChildDiv right">
+                <h3>@Model.retainingWall.name</h3>
+                <h3>@Model.retainingWall.colour</h3>
+                <h3>@Model.retainingWall.size</h3>
+            </div>
+            <img class="imageResize left" src="~/images/@Model.retainingWall.imagePath"/>
+        </div>
+        <div>
+            <p>@Model.retainingWall.description</p>
+            <p>Maximum height: @Model.retainingWall.maxHeight mm</p>
+            <p>$@Model.retainingWall.price ea</p>
+        </div>
+    }
+</div> 
+

@@ -16,7 +16,6 @@
 
         public Paver(int typeId, string? name, string? description, string? supplier, string? size, bool canCrushRock, double price, string colour, string colourCategory, string imagePath)
         {
-            
             this.typeId = typeId;
             this.name = name;
             this.description = description;

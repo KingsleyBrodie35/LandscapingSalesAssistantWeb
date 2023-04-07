@@ -43,3 +43,8 @@ formInputWall.generateInputs = function () {
     inputSize.classList.remove("show")
     inputCrushRock.classList.remove("show")
 }
+
+function rowClicked(ProductId, TypeId) {
+    window.location.href = `./Product?ProductId=${ProductId}&TypeId=${TypeId}`
+    console.log("row clicked")
+}

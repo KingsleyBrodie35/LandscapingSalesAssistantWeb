@@ -62,7 +62,8 @@
             </tr>
         @foreach (var p in Model.pResults)
         {
-            <tr>
+            
+            <tr onclick="rowClicked(@p.PaverId, @p.typeId)">
                 <td><img src="~/images/@p.imagePath"/></td>
                 <td>@p.PaverId</td>
                 <td>@p.name</td>
@@ -71,7 +72,9 @@
                 <td>@p.description</td>
                 <td>@p.supplier</td>
                 <td>$@p.price ea</td>
+               
             </tr>
+          
         }
         }
         @if (Model.rWresults != null && Model.rWresults.Count != 0)
@@ -88,7 +91,8 @@
             </tr>
             @foreach (var r in Model.rWresults)
             {
-                <tr>
+               
+                <tr onclick="rowClicked(@r.RetainingWallId, @r.typeId)">
                     <td><img src="images/@r.imagePath"/></td>
                     <td>@r.RetainingWallId</td>
                     <td>@r.name</td>
@@ -98,9 +102,9 @@
                     <td>$@r.price ea</td>
                     <td>@r.maxHeight</td>
                 </tr>
+                
             }
         }
        
     </table></div>
-   
 </div>

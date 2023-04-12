@@ -23,7 +23,7 @@ namespace SalesAssistantWebApp.Pages
         public int wallHeight { get; set; }
 
         //inject DbContext into model
-        public IndexModel(LandscapingAssistantDB landscapingAssistantDB)
+        public IndexModel(LandscapingAssistantDB landscapingAssistantDB, IdentityContext identity)
         {
             _landscapingAssistantDB = landscapingAssistantDB;
         }
@@ -31,7 +31,6 @@ namespace SalesAssistantWebApp.Pages
         public void OnGet()
         {
             _landscapingAssistantDB.createData();
-            var p = _landscapingAssistantDB.Pavers.Where(p => p.canCrushRock == true).ToList<Paver>();
         }
 
         public void OnPost(string wallHeight)
@@ -57,6 +56,7 @@ namespace SalesAssistantWebApp.Pages
             {
                 rWresults = _landscapingAssistantDB.RetainingWalls.Where(r => r.canCurve == canWallCurve && r.maxHeight > this.wallHeight && r.colourCategory == colour).ToList<RetainingWall>();
             }
+            
         }
     }
 }

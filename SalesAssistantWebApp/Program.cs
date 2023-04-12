@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using SalesAssistantWebApp.Context;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Identity;
 
 namespace SalesAssistantWebApp
 {
@@ -18,6 +19,20 @@ namespace SalesAssistantWebApp
             // Add services to the container (dependency injection)
             builder.Services.AddDbContext<LandscapingAssistantDB>(options =>
             options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            //add Identity
+            builder.Services.AddDbContext<IdentityContext>(options =>
+            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            .AddEntityFrameworkStores<IdentityContext>();
+            //add Session
+            builder.Services.AddDistributedMemoryCache();
+
+            builder.Services.AddSession(options =>
+            {
+                options.Cookie.Name = ".Cart.Session";
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
 
             var app = builder.Build();
 
@@ -34,7 +49,11 @@ namespace SalesAssistantWebApp
 
             app.UseRouting();
 
+            app.UseAuthentication();;
+
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.MapRazorPages();
 

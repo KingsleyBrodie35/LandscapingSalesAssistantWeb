@@ -1,6 +1,6 @@
 ﻿namespace SalesAssistantWebApp.Models
 {
-    public class RetainingWall
+    public class RetainingWall : Product
     {
         public int RetainingWallId { get; set; }
         public int typeId { get; set; }

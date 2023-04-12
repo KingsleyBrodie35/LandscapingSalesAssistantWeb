@@ -1,6 +1,6 @@
 ﻿namespace SalesAssistantWebApp.Models
 {
-    public class Paver
+    public class Paver : Product
     {
         public int PaverId { get; set; }
         public int typeId { get; set; }

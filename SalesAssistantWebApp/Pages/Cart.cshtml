@@ -1,0 +1,60 @@
+﻿@page
+@model SalesAssistantWebApp.Pages.CartModel
+@{
+    double totalOrderValue = 0;
+    int btnCount = 0;
+}
+@using SalesAssistantWebApp.Models;
+<h3>Cart</h3>
+<div class="centerDiv">
+
+    @if (Model.cartLines.Count != 0)
+    {
+        <table>
+        <tr>
+            <th>ProductId</th>
+            <th>Product Name</th>
+            <th>Colour</th>
+            <th>Total Pieces</th>
+            <th>Total Area (m2/Lm)</th>
+            <th>Value</th>
+            <th></th>
+        </tr>
+            @foreach(CartLine line in Model.cartLines)
+            {
+                <tr>
+                 @if (line.Product is RetainingWall rw)
+                {
+                    <td>@rw.RetainingWallId</td>
+                    <td>@rw.name</td>
+                    <td>@rw.colour</td>
+                    <td id="@($"{rw.RetainingWallId}_totalAmount")">@line.totalProduct</td>
+                    <td><input type="text" id="@($"{rw.RetainingWallId}_input")" value="@line.totalAmount" style="width: 100%; height: 100%;"/></td>
+                    <td id="@($"{rw.RetainingWallId}_totalValue")">$@String.Format("{0:0.00}", line.totalValue)</td>
+                    <td><button onclick="changeRWValue('@rw.size', '@rw.price', '@rw.RetainingWallId')">Update row</button></td>
+                }
+                </tr>
+                <tr>
+                @if (line.Product is Paver p)
+                {
+                    <td>@p.PaverId</td>
+                    <td>@p.name</td>
+                    <td>@p.colour</td>
+                    <td id="@($"{p.PaverId}_totalAmount")">@line.totalProduct</td>
+                    <td><input type="text" id="@($"{p.PaverId}_input")" value="@line.totalAmount" style="width: 100%; height: 100%;"/></td>
+                    <td id="@($"{p.PaverId}_totalValue")">$@String.Format("{0:0.00}", line.totalValue)</td>
+                    <td><button onclick="changePValue('@p.size', '@p.price', '@p.PaverId')">Update row</button></td>
+                }
+                </tr>
+                totalOrderValue += line.totalValue;
+                btnCount++;
+            }
+            <tr><td>total order value</td><td id="totalOrderValue">$@String.Format("{0:0.00}", totalOrderValue)</td></tr>
+        </table>
+        
+    } else
+    {
+        <h5>Cart is empty</h5>
+    }
+</div>
+<script src="~/js/cart.js" asp-append-version="true"></script>

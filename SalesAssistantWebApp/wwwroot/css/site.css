@@ -16,6 +16,9 @@ html {
 body {
   margin-bottom: 60px;
 }
+.mainForm {
+    padding-bottom: 60px;
+}
 #inputDiv {
     width: 30%;
     justify-content: center;
@@ -63,10 +66,6 @@ th {
 img {
     width: 150px;
 }
-form {
-    padding-bottom:60px;
-
-}
 .tableDiv {
     width: 100%;
     display: flex;
@@ -77,7 +76,14 @@ a {
     color: black;
     text-decoration: none;
 }
-tr:hover {
+.centerA 
+{
+    display: inline-block; /* Allows the height property to take effect */
+    height: 40px; /* Set the height of the a tag */
+    line-height: 40px; /* Set the line-height equal to the height */
+    text-align: center; /* Center the text horizontally */
+}
+.tableDiv tr:hover {
     background-color: #ecebf3;
     cursor: pointer;
     text-decoration: underline;
@@ -99,4 +105,23 @@ h3 {
 }
 .imageResize {
     width: 40%;
+}
+.formRow {
+    display: flex;
+    flex-direction: column;
+}
+.cart {
+    width: 30px;
+}
+navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.centerDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }

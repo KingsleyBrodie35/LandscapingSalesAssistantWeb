@@ -2,7 +2,8 @@
 @model SalesAssistantWebApp.Pages.ProductModel
 
 <div class="mainDiv">
-    @if (Model.paver != null) {
+    @if (Model.paver != null)
+    {
         <div> 
             <div class="headerChildDiv right">
                 <h3>@Model.paver.name</h3>
@@ -15,9 +16,24 @@
             <p>@Model.paver.description</p>
             <p>Supplier: @Model.paver.supplier</p>
             <p>$@Model.paver.price ea</p>
-        </div>
-        
-
+            @if (User.Identity.IsAuthenticated)
+            {
+                <div class="formRow">
+                <form method="post" class="formRow">
+                    <label>Square Metres</label>
+                    <input type="text" pattern="^[0-9]+$" name="m2">
+                    <input class="hidden" name="ProductId" value="@Model.paver.PaverId">
+                     <input class="hidden" name="TypeId" value="@Model.paver.typeId">
+                    <button type="submit" >Add to cart</button>
+                </form>
+                </div>
+                if (Model.msg)
+                {
+                    <div id="outputMsg"><p>Added to cart!</p></div>
+                }
+            }
+        </div> 
+    
     }
 
     @if (Model.retainingWall != null) {
@@ -33,7 +49,26 @@
             <p>@Model.retainingWall.description</p>
             <p>Maximum height: @Model.retainingWall.maxHeight mm</p>
             <p>$@Model.retainingWall.price ea</p>
+            <div id="formRow" class="formRow">
+            @if (User.Identity.IsAuthenticated)
+            {
+                
+                    <form method="post">
+                        <label>Lineal Metres</label>
+                        <input type="text" pattern="^[0-9]+$" name="Lm">
+                        <input class="hidden" name="ProductId" value="@Model.retainingWall.RetainingWallId">
+                        <input class="hidden" name="TypeId" value="@Model.retainingWall.typeId">
+                        <button type="submit" >Add to cart</button>
+                    </form>
+                
+            }
+             if (Model.msg)
+                {
+                    <div id="outputMsg"><p>Added to cart!</p></div>
+                }
+            </div>            
         </div>
-    }
+        }
 </div> 
+<script src="~/js/product.js" asp-append-version="true"></script>
 

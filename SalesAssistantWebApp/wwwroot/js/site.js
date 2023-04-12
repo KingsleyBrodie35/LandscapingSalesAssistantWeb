@@ -48,3 +48,5 @@ function rowClicked(ProductId, TypeId) {
     window.location.href = `./Product?ProductId=${ProductId}&TypeId=${TypeId}`
     console.log("row clicked")
 }
+
+
